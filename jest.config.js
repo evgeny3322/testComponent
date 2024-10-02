@@ -1,3 +1,14 @@
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest/presets/typescript'
-}
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1'
+  },
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'vue'],
+  transform: {
+    '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\.(ts|tsx)$': 'babel-jest',
+    '^.+\\.(js|jsx)$': 'babel-jest'
+  },
+  transformIgnorePatterns: ['/node_modules/(?!(axios)/)'],
+};
